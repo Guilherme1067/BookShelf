@@ -30,33 +30,44 @@ class Form extends Component {
             const {nome,livro,preco} = this.state
             return(
                 <form>
-                    <label htmlFor="nome">nome</label>
-                    <input 
-                    type="text"
-                    id="nome"
-                    name="nome"
-                    value={nome}
-                    onChange={this.addInput}
-                    />
+                <div className="row">
+                    <div className="input-field col s4">
+                        <label className="input-field" htmlFor="nome">nome</label>
+                        <input 
+                        className="validated"
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        value={nome}
+                        onChange={this.addInput}
+                        />
+                    </div>
 
-                    <label htmlFor="livro">Livro</label>
-                    <input
-                     name="livro"
-                     type="text"
-                     id="livro"
-                     value={livro}
-                    onChange={this.addInput}
-                    />
+                    <div className="input-field col s4">
+                        <label className="input-field" htmlFor="livro">Livro</label>
+                        <input
+                         className="validated"
+                         name="livro"
+                         type="text"
+                         id="livro"
+                         value={livro}
+                        onChange={this.addInput}
+                        />
+                    </div>
 
-                    <label htmlFor="preco">Preço</label>
-                    <input
-                     name="preco"
-                     type="text"
-                     id="preco"
-                     value={preco}
-                     onChange={this.addInput}
-                    />
-                    <button onClick={this.sendAuthor}type="button">Salvar</button>
+                        <div className="input-field col s4">
+                            <label className="input-field" htmlFor="preco">Preço</label>
+                            <input
+                             className="validated"
+                             name="preco"
+                             type="text"
+                             id="preco"
+                             value={preco}
+                             onChange={this.addInput}
+                            />
+                        </div>
+                    </div>
+                    <button className="waves-effect waves-light deep-purple accent-4 btn" onClick={this.sendAuthor}type="button" >Salvar</button>
                     </form>
             )
         }

@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import Table from './components/Table/Table';
 import Form from './components/Form'
 import 'materialize-css/dist/css/materialize.min.css'
+import Header from './components/Header';
 
 class App extends Component{
 
@@ -36,7 +37,7 @@ class App extends Component{
 
       this.setState({
         autores: autores.filter((autor,posicaoAtual) => {
-          return posicaoAtual != index;
+          return posicaoAtual !== index;
         })
       })
     }
@@ -49,8 +50,11 @@ class App extends Component{
   render(){
     return (
         <Fragment>
-          <Table autores={this.state.autores} removeAutor={this.removeAutor} />
-          <Form addAutor={this.addAutor}/>
+        <Header/>
+          <div className="container">
+            <Table autores={this.state.autores} removeAutor={this.removeAutor} />
+            <Form addAutor={this.addAutor}/>
+          </div>
         </Fragment>
     );
   }
