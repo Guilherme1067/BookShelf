@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import Table from './components/Table/Table';
 import Form from './components/Form'
+import 'materialize-css/dist/css/materialize.min.css'
 
 class App extends Component{
 
