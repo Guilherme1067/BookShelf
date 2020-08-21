@@ -7,7 +7,7 @@ import React, {Component} from 'react';
             <th>{autores.nome}</th>
             <th>{autores.livro}</th>
             <th>{autores.preco}</th>
-            <th><button>Remover</button></th>
+            <th><button onClick={() => props.removeAutor(index)}>Remover</button></th>
           </tr>
       );
        
@@ -30,11 +30,11 @@ import React, {Component} from 'react';
  }
 class Table extends Component{
   render (){
-    const {autores} = this.props;
+    const {autores, removeAutor} = this.props;
     return (
       <table>
         <Thead/>
-        <Tbody autores= {autores} /> 
+        <Tbody autores= {autores} removeAutor={removeAutor} /> 
     </table>
     )
   }

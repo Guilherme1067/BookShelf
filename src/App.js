@@ -1,9 +1,18 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import Table from './components/Table/Table';
 
 class App extends Component{
 
-    
+    removeAutor = (index) => {
+      const {autores} = this.state;
+
+      this.setState({
+        autores: autores.filter((autor,posicaoAtual) => {
+          return posicaoAtual != index;
+        })
+      })
+
+    }
 
     state = {
       autores : [
@@ -33,7 +42,8 @@ class App extends Component{
   render(){
     return (
       <div className="App">
-        <Table autores={this.state.autores} />
+          
+        <Table autores={this.state.autores} removeAutor={this.removeAutor} />
       </div>
     );
   }
