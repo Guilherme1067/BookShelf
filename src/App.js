@@ -1,18 +1,8 @@
-import React, {Component, useState} from 'react';
+import React, {Component, Fragment} from 'react';
 import Table from './components/Table/Table';
+import Form from './components/Form'
 
 class App extends Component{
-
-    removeAutor = (index) => {
-      const {autores} = this.state;
-
-      this.setState({
-        autores: autores.filter((autor,posicaoAtual) => {
-          return posicaoAtual != index;
-        })
-      })
-
-    }
 
     state = {
       autores : [
@@ -39,12 +29,28 @@ class App extends Component{
        
       ],
     };
+
+    removeAutor = (index) => {
+      const {autores} = this.state;
+
+      this.setState({
+        autores: autores.filter((autor,posicaoAtual) => {
+          return posicaoAtual != index;
+        })
+      })
+    }
+
+  
+  addAutor = autor => {
+    this.setState({autores: [...this.state.autores, autor]})
+  }
+
   render(){
     return (
-      <div className="App">
-          
-        <Table autores={this.state.autores} removeAutor={this.removeAutor} />
-      </div>
+        <Fragment>
+          <Table autores={this.state.autores} removeAutor={this.removeAutor} />
+          <Form addAutor={this.addAutor}/>
+        </Fragment>
     );
   }
 }
